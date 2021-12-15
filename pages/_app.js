@@ -1,10 +1,15 @@
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './../components/header';
+import Footer from './../components/footer';
 
 function MyApp({ Component, pageProps }) {
   return (
-  <><Header></Header><Component {...pageProps} /></>
+  <>
+    <Header/>
+    <Component {...pageProps} />
+    <Footer/>
+    </>
   )
 }
 

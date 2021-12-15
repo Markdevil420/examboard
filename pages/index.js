@@ -1,7 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import List from '../components/list';
+import AccordionList from '../components/accordionlist';
 
 export default function Home() {
   return (
-    <h1>Hello from Amit kumar</h1>
+    <div className='container mt-3 mb-3'>
+      <AccordionList/>
+    </div>
   )
 }
