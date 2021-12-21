@@ -1,90 +1,37 @@
 //import AccordionList from './../../components/container/accordionlist';
-
+import Skeleton from 'react-loading-skeleton';
 import dynamic from "next/dynamic";
 
 const AccordionList = dynamic(() => import("./../../components/container/accordionlist"), {
-  loading: () => <b>Loading...</b>,
+  loading: () =><Skeleton count={20} />,
 });
 
-
-const Accordian_data = [
-  {
-    id:1,
-    title:"Secova",
-    baseurl:"https://secova.com/"
-  },
-  {
-    id:2,
-    title:"Tmpwdirect",
-    baseurl:"https://www.tmpwdirect.com/"
-  },
-  {
-    id:3,
-    title:"Bizq",
-    baseurl:"https://bizq.sbf.org.sg/"
-  },
-  
-];
-
-
 export default function Project(props) {
-
-  
-
   return (
     <div className='container mt-3 mb-3'>
-      <AccordionList projectex={Accordian_data}/>
+      <AccordionList projectex={props.Accordian_data}/>
     </div>
   )
 }
 
 export async function getStaticPaths() {
-  //const res = await fetch('https://jsonplaceholder.typicode.com/users')
-  //const users = await res.json()
-  const users = [
-    {
-      id:1,
-      title:"Secova",
-      baseurl:"https://secova.com/",
-      project:"Secova",
-    },
-    {
-      id:2,
-      title:"Tmpwdirect",
-      baseurl:"https://www.tmpwdirect.com/",
-      project:"Tmpwdirect",
-    },
-    {
-      id:3,
-      title:"Bizq",
-      baseurl:"https://bizq.sbf.org.sg/",
-      project:"Bizq",
-    },
-  ]
-
-  const paths = users.map((props) => ({
-    params: { project: props.title.toString()},
-  }))
-
-  return { paths, fallback: false }
+  return { paths:[], fallback: 'blocking' }
 }
 
 
 export async function getStaticProps({ params }) {
 
-  // const res = await fetch(`${params.baseurl}wp-json/wp/v2/categories`)
-  console.log("params.baseurl"+JSON.stringify(params));
-  // const res = await fetch(`https://www.tmpwdirect.com/wp-json/wp/v2/categories`)
-  // const user = await res.json()
+  const res = await fetch(`https://www.secova.com/wp-json/wp/v2/categories`);
+  const user = await res.json();
+  const Accordian_data1 = user.map( (u) => {
 
-  return { props: { Accordian_data:Accordian_data } }
+    return {id:u.id,title:u.name};
+
+  })
+
+  return { 
+    props: { 
+      Accordian_data:Accordian_data1
+    } 
+  }
 }
-
-// export async function getStaticProps(){
-
-//   return {
-//     props : {
-//       Accordian_data:Accordian_data
-//     }
-//   }
-// }

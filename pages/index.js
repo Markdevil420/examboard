@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../components/container/list';
+import ListCardItem from '../components/listcarditem';
 
 const Project_List = [
   {
@@ -26,7 +26,15 @@ const Project_List = [
 export default function Home(props) {
   return (
     <div className='container mt-3 mb-3'>
-      <List list={Project_List}/>
+      <ol className="list-group list-group-numbered">
+      {
+        Project_List.map((list) => {
+          return(
+            <ListCardItem list={list} key={list.id}/>
+          )                          
+        })
+      }
+      </ol>
     </div>
   )
 }

@@ -7,7 +7,6 @@ export default function List(props) {
   // function gotoProject(linkaddress){
   //   router.push('/'+linkaddress);
   // }
-
   return (
     <ol className="list-group list-group-numbered">
       {
