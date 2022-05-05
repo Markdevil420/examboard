@@ -11,7 +11,7 @@ export default function PostList() {
   return (
     <ul className="list-group">
       {
-       postlist.map((postItem) => {
+       postlist?.map((postItem) => {
             return(
               <PostItem key={postItem.id} postItem={postItem}/>
             )                          
