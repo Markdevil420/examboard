@@ -1,0 +1,4 @@
+export const LOAD_POST = 'LOAD_POST';
+export const LOAD_POST_SUCCESS = 'LOAD_POST_SUCCESS';
+export const LOAD_POST_FAIL = 'LOAD_POST_FAIL';
+export const CLEAR_POST_ERROR = 'CLEAR_POST_ERROR';

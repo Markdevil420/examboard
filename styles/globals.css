@@ -26,6 +26,19 @@ body {
   font-weight: 600;
 }
 
+.buttontext {
+  text-align: left;
+}
+
+.postdiv{
+  overflow-x: auto;
+}
+
+.brandbox{
+  height: 85vH;
+  padding-top: 32vh;
+}
+
 .accordionstyle{
   border: 1px solid gray;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

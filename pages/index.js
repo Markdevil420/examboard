@@ -1,40 +1,19 @@
-import React from 'react';
-import ListCardItem from '../components/listcarditem';
+import { useRouter } from 'next/router';
 
-const Project_List = [
-  {
-    id:1,
-    title:"Secova",
-    baseurl:"https://secova.com/",
-    project:"Secova",
-  },
-  {
-    id:2,
-    title:"Tmpwdirect",
-    baseurl:"https://www.tmpwdirect.com/",
-    project:"Tmpwdirect",
-  },
-  {
-    id:3,
-    title:"Bizq",
-    baseurl:"https://bizq.sbf.org.sg/",
-    project:"Bizq",
-  },
-  
-];
+export default function Home() {
 
-export default function Home(props) {
-  return (
-    <div className='container mt-3 mb-3'>
-      <ol className="list-group list-group-numbered">
-      {
-        Project_List.map((list) => {
-          return(
-            <ListCardItem list={list} key={list.id}/>
-          )                          
-        })
-      }
-      </ol>
+  const router = useRouter();
+
+  setTimeout(() => {
+    router.push('/0');
+  }, 3000);
+
+  return (<>
+    <div className="container brandbox text-center">
+      <h1 className="fw-bold">ExamBoard</h1>
+      <div className="progress w-50 mx-auto">
+        <div className="progress-bar progress-bar-striped progress-bar-animated w-100" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
     </div>
-  )
+  </>)
 }

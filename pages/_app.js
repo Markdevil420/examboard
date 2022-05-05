@@ -1,11 +1,12 @@
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-loading-skeleton/dist/skeleton.css';
-import Header from './../components/header';
-import Footer from './../components/footer';
+import Header from './../template/components/header';
+import Footer from './../template/components/footer';
 import Router from 'next/router';
 import React ,{useState} from 'react';
-import Loader from './../components/loader';
+import Loader from './../template/components/loader';
+import { wrapper } from './../redux/store';
 
 function MyApp({ Component, pageProps }) {
 
@@ -32,4 +33,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp);

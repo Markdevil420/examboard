@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 export default function Footer() {
     return (
         <div className="container-fluid bg-primary">
@@ -8,4 +6,4 @@ export default function Footer() {
             </div>
         </div>
     )
-  }
+}
