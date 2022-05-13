@@ -4,7 +4,7 @@ export default function ProjectItem(props) {
 
     const router = useRouter();
     function gotoProject(){
-        router.push('/' +props.projectlist.id);
+        router.push('/' +props.projectlist.slug);
     }
 
     return (

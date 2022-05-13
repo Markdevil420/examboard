@@ -19,10 +19,10 @@ export const projectReducer = (state = initialState, action) => {
 
         case LOAD_PROJECTS_SUCCESS:{
 
-            const {postlist = [], categorylist = [], project_id = null } = action.payload;
-            const list = {project_id:project_id , categorylist:categorylist,postlist:postlist};
+            const {id , slug , postlist = [], categorylist = [] , seo } = action.payload;
+            const list = {id:id ,slug:slug , categorylist:categorylist,postlist:postlist , seo:seo};
             
-            if(!(state.projectlist.find( e => e.project_id == project_id))){
+            if(!(state.projectlist.find( e => e.slug == slug))){
                 state.projectlist.push(list);
             }
             

@@ -22,7 +22,7 @@ export const postReducer = (state = initialState, action) => {
             // const {id = null, title = null, content = null } = action.payload;
             // const post = {project_id:project_id , categorylist:categorylist,postlist:postlist};
             
-            if(!(state.postlist.find( e => e.id == action.payload.id))){
+            if(!(state.postlist.find( e => e.slug == action.payload.slug))){
                 state.postlist.push(action.payload);
             }
             

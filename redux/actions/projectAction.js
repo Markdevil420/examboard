@@ -1,35 +1,41 @@
 import { LOAD_PROJECTS, LOAD_PROJECTS_SUCCESS , LOAD_PROJECTS_FAIL ,CLEAR_PROJECTS_ERROR } from './../constants/projectConstants';
 import  axios  from 'axios';
 
-export const getProject =  (id=0) => async(dispatch) => {
+export const getProject =  (slug="all") => async(dispatch) => {
 
     try {
-
+        
         dispatch({
             type:LOAD_PROJECTS,
         });
-
-        const list = await axios.post('http://localhost/examboard/api/getData.php',{
-            "id":id,
+        
+        const list = await axios.post(`${process.env.API_BASE_URL}webapi.php`,{
+            "slug":slug,
             "type":1
         });
-
-        console.log("List api response :- ",list?.headers?.date);
+        
+        console.log("List api response :- ",list?.headers?.date+"=="+slug);
 
         if(list.data.status_code == 200){
 
+            const id = await list?.data?.data?.id;
+
             const postList = await list?.data?.data?.postlist?.map((e) => {
-                return { id: e.id,title:e.title}
+                return { id: e.id,title:e.title,slug:e.slug}
             });
 
             const categoryList = await list?.data?.data?.categorylist?.map((e) => {
-                return { id: e.id,title:e.title}
+                return { id: e.id,title:e.title,slug:e.slug}
             });
+
+            const seo = await list?.data?.data?.seo || null;
     
             const projectList = {
+                id:id,
+                slug:slug,
                 postlist:postList,
                 categorylist:categoryList,
-                project_id:id
+                seo:seo,
             }
      
             dispatch({
