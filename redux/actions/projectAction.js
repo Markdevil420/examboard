@@ -1,7 +1,7 @@
 import { LOAD_PROJECTS, LOAD_PROJECTS_SUCCESS , LOAD_PROJECTS_FAIL ,CLEAR_PROJECTS_ERROR } from './../constants/projectConstants';
 import  axios  from 'axios';
 
-export const getProject =  (slug="all") => async(dispatch) => {
+export const getProject =  (slug="home") => async(dispatch) => {
 
     try {
         
@@ -9,10 +9,15 @@ export const getProject =  (slug="all") => async(dispatch) => {
             type:LOAD_PROJECTS,
         });
         
-        const list = await axios.post(`${process.env.API_BASE_URL}webapi.php`,{
+        const list = await axios.post(`${process.env.BASE_URL}/api/getdata`,{
             "slug":slug,
             "type":1
         });
+        
+        // const list = await axios.post(`${process.env.API_BASE_URL}webapi.php`,{
+        //     "slug":slug,
+        //     "type":1
+        // });
         
         console.log("List api response :- ",list?.headers?.date+"=="+slug);
 

@@ -9,10 +9,15 @@ export const getPost =  (slug="") => async(dispatch) => {
             type:LOAD_POST,
         });
 
-        const post = await axios.post(`${process.env.API_BASE_URL}webapi.php`,{
+        const post = await axios.post(`${process.env.BASE_URL}/api/getdata`,{
             "slug":slug,
             "type":2
         });
+
+        // const post = await axios.post(`${process.env.API_BASE_URL}webapi.php`,{
+        //     "slug":slug,
+        //     "type":2
+        // });
 
         console.log("post api response :- ",post?.headers?.date+"=="+slug);
 
