@@ -9,7 +9,7 @@ export const getProject =  (slug="home") => async(dispatch) => {
             type:LOAD_PROJECTS,
         });
         
-        const list = await axios.post(`${process.env.BASE_URL}/api/getdata`,{
+        const list = await axios.post(`https://examboard.vercel.app/api/getdata`,{
             "slug":slug,
             "type":1
         });
