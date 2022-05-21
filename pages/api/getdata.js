@@ -111,7 +111,8 @@ export default async function handler(req, res) {
 
 
 async function apicall(type, param, id){
-    const baseurl = "https://59k.1bf.myftpupload.com/wp-json/wp/v2/";
+    //const baseurl = "https://59k.1bf.myftpupload.com/wp-json/wp/v2/";
+    const baseurl = "https://techblicks.com/wp-json/wp/v2/";
     const url = baseurl + type + "?" + param + "=" + id + "&per_page=100";
     
     try {
