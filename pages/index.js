@@ -16,7 +16,7 @@ export default function Home() {
     <Head>
       <title>ExamBoard</title>
       <meta charSet="utf-8"/>
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="ExamBoard tutorial learn programming language " />
       <meta name="description" content="This is learning website help to learn new technology" />
