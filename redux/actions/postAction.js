@@ -9,7 +9,7 @@ export const getPost =  (slug="") => async(dispatch) => {
             type:LOAD_POST,
         });
 
-        const post = await axios.post(`${process.env.BASE_URL}/api/getdata`,{
+        const post = await axios.post(`https://examboard.vercel.app/api/getdata`,{
             "slug":slug,
             "type":2
         });
