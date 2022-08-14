@@ -20,6 +20,7 @@ export default function Home() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="keywords" content="ExamBoard tutorial learn programming language " />
       <meta name="description" content="This is learning website help to learn new technology" />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2675825941309382" crossorigin="anonymous"></script>
     </Head>
     <div className="container brandbox text-center">
       <h1 className="fw-bold">ExamBoard</h1>
